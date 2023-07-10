@@ -1,0 +1,61 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.card {
+  width: 400px;
+  height: 400px;
+  background-color: #f5f5f5;
+  box-shadow: 4px 4px 8px 0px rgb(134, 124, 124),
+    inset -8px -8px 16px 0px rgba(92, 92, 92, 0.7),
+    inset 0px 14px 28px 0px hsl(120deg 20% 95%);
+  padding: 20px;
+  border-radius: 5px;
+}
+.card-info {
+  padding: 1rem;
+}
+#quotes {
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding-top: 5rem;
+}
+#author {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 2rem;
+  text-decoration: underline;
+}
+.btn {
+  padding-top: 3rem;
+}
+#btn_quotes {
+  font-size: 1.3rem;
+  padding: 5px 10px;
+  border: none;
+}
+#btn_quotes:hover {
+  background-color: rgb(55, 50, 50);
+  color: white;
+  border-radius: 5px;
+}
+
+#tweet_me {
+  font-size: 1.3rem;
+  padding: 5px 10px;
+  border: none;
+}
+#tweet_me:hover {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 500px) {
+  #quotes {
+    padding-top: 3rem;
+  }
+}

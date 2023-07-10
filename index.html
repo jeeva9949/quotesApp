@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>quotes</title>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-info">
+        <div id="quotes"></div>
+        <div id="author"></div>
+        <div class="btn">
+          <button id="btn_quotes">new quotes</button>
+          <button id="tweet_me">Tweet me</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const quotes = document.getElementById("quotes");
+      const author = document.getElementById("author");
+      const btn = document.getElementById("btn_quotes");
+      const tweet_me = document.getElementById("tweet_me");
+
+      let response = "";
+      let rnum = "";
+
+      const tweet_post = () => {
+        const tweet_instat = `https://twitter.com/intent/tweet?text=${response[rnum].text} --  ${response[rnum].author}`;
+        window.open(tweet_instat);
+      };
+
+      const getnewQoutes = () => {
+        rnum = Math.floor(Math.random() * 20);
+
+        quotes.innerText = `${response[rnum].text}`;
+
+        response[rnum].author == null
+          ? (author.innerText = "UnKnown")
+          : (author.innerText = `${response[rnum].author}`);
+      };
+
+      const getquotes = async () => {
+        const api = "https://type.fit/api/quotes";
+        try {
+          let data = await fetch(api);
+          response = await data.json();
+
+          getnewQoutes();
+        } catch (error) {}
+      };
+
+      btn.addEventListener("click", getnewQoutes);
+      tweet_me.addEventListener("click", tweet_post);
+      getquotes();
+    </script>
+  </body>
+</html>
